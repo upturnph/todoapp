@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Daily Flow — Personal To-Do</title>
+  <link rel="manifest" href="manifest.json" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="app" id="app">
+    <div class="left">
+      <div class="topbar">
+        <div class="header-row">
+          <div>
+            <div class="greeting" id="greeting">Welcome!</div>
+            <div class="datetime" id="datetime">10:00 AM • 10/15 • Wed</div>
+          </div>
+          <div class="controls">
+            <button class="smallbtn" id="editModeBtn">Edit</button>
+            <button class="smallbtn" id="testNotify">Test Reminder</button>
+            <button class="smallbtn" id="installBtn" style="display:none;">Install</button>
+          </div>
+        </div>
+        <div class="greeting-add" id="greetingAddArea" style="display:none;">
+          <input type="text" id="newGreeting" placeholder="Add custom greeting (optional)">
+          <button class="smallbtn" id="addGreetingBtn">Add</button>
+        </div>
+      </div>
+
+      <div class="paper" role="main" aria-label="daily tasks">
+        <h2>Main daily tasks</h2>
+        <div class="tasks" id="tasksList" tabindex="0" aria-live="polite"></div>
+
+        <div class="controls-row">
+          <div class="small-muted">Drag to reorder • Long-press to rename</div>
+          <div class="add-inline">
+            <input type="text" id="newTaskText" placeholder="Add new task" />
+            <button class="smallbtn" id="addTaskBtn">Add</button>
+          </div>
+        </div>
+
+        <div class="footer">
+          <div>Auto-reset daily • Local-only data</div>
+          <div class="small-muted">Tap a task to check it off</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="side">
+      <div class="sidehead">
+        <div class="side-buttons">
+          <button class="pill" data-list="0" id="titleBtn0">To order ▾</button>
+          <button class="pill" data-list="1" id="titleBtn1">To learn ▾</button>
+          <button class="pill" data-list="2" id="titleBtn2">To read ▾</button>
+          <button class="pill" data-list="3" id="titleBtn3">Finances ▾</button>
+        </div>
+      </div>
+      <div class="sidepanel" id="sidepanelArea"></div>
+    </div>
+  </div>
+
+  <div class="fullscreen-modal" id="modal" aria-hidden="true">
+    <div class="modal-card">
+      <h1 id="modalTitle">Good morning!</h1>
+      <p id="modalText">Time to start your day.</p>
+      <div class="bigdone" id="modalDone">Open my list</div>
+    </div>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
